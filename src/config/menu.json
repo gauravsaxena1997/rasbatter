@@ -1,0 +1,170 @@
+{
+  "categories": [
+    {
+      "id": "gujiya",
+      "title": "Gujiya Special",
+      "subtitle": "The Healthier Choice: Oven-Baked",
+      "icon": "Croissant",
+      "items": [
+        {
+          "name": "Mawa Gujiya",
+          "price": 600,
+          "unit": "kg",
+          "image": "gujiya-1-v2",
+          "description": "Exquisite baked pastry filled with rich khoya, nuts, and aromatic cardamom."
+        },
+        {
+          "name": "Chocolate Gujiya",
+          "price": 700,
+          "unit": "kg",
+          "image": "gujiya-2-v3",
+          "description": "Traditional crust filled with molten chocolate, finished with a precise zigzag chocolate drizzle on top."
+        },
+        {
+          "name": "Whole Wheat Gujiya",
+          "price": 500,
+          "unit": "kg",
+          "image": "gujiya-3-v2",
+          "description": "A wholesome, fiber-rich alternative made with pure whole wheat and mawa filling."
+        },
+        {
+          "name": "Dry Fruit Premium Gujiya",
+          "price": 900,
+          "unit": "kg",
+          "premium": true,
+          "image": "gujiya-4-v2",
+          "description": "Luxury festive treat loaded with premium almonds, pistachios, and saffron."
+        }
+      ]
+    },
+    {
+      "id": "cakes",
+      "title": "Holi Special Cakes",
+      "icon": "CakeSlice",
+      "items": [
+        {
+          "name": "Thandai Cake",
+          "price": 300,
+          "unit": "lb",
+          "image": "cake-1-round",
+          "description": "Infused with traditional thandai spices, rose petals, and creamy white frosting."
+        },
+        {
+          "name": "Rasmalai Cake",
+          "price": 350,
+          "unit": "lb",
+          "image": "cake-2-round",
+          "description": "Dreamy sponge soaked in saffron milk, topped with malai cream and nuts."
+        },
+        {
+          "name": "Holi Bento Cake",
+          "price": 150,
+          "unit": "pc",
+          "image": "cake-3-bento",
+          "description": "Perfect mini celebration cake with cute festive designs and moist sponge layers."
+        }
+      ]
+    },
+    {
+      "id": "chocolates",
+      "title": "Holi Special Chocolate Bars",
+      "icon": "Candy",
+      "items": [
+        {
+          "name": "Thandai Chocolate Bar",
+          "price": 180,
+          "unit": "bar",
+          "image": "choc-bar-1",
+          "description": "White chocolate tinted pale yellow, infused with saffron and topped with almonds and thandai spices."
+        },
+        {
+          "name": "Paan Chocolate Bar",
+          "price": 170,
+          "unit": "bar",
+          "image": "choc-bar-2",
+          "description": "Traditional dark chocolate bar, richly infused with betel leaf essence and gulkand."
+        },
+        {
+          "name": "Rose Pistachio White Chocolate",
+          "price": 190,
+          "unit": "bar",
+          "image": "choc-bar-3",
+          "description": "Elegant white chocolate bar featuring dried rose petals and crunchy Iranian pistachios."
+        }
+      ]
+    },
+    {
+      "id": "brownies",
+      "title": "Brownies",
+      "icon": "Cookie",
+      "items": [
+        {
+          "name": "Classic Fudgy Brownie",
+          "price": 60,
+          "unit": "pc",
+          "image": "brownie-1-v2",
+          "description": "Intense dark chocolate brownie with a perfectly crackly top and gooey center."
+        },
+        {
+          "name": "Walnut Brownie",
+          "price": 60,
+          "unit": "pc",
+          "image": "brownie-2-v2",
+          "description": "Traditional fudge brownie packed with toasted walnuts for that classic crunch."
+        },
+        {
+          "name": "Chocolate Chip Brownie",
+          "price": 80,
+          "unit": "pc",
+          "image": "brownie-3-v2",
+          "description": "Dual chocolate delight with semi-sweet morsels baked into every rich bite."
+        }
+      ]
+    },
+    {
+      "id": "cupcakes",
+      "title": "Holi Special Cupcakes (Pack of 6)",
+      "icon": "Dessert",
+      "items": [
+        {
+          "name": "Chocolate Truffle Cupcake",
+          "price": 360,
+          "unit": "box",
+          "image": "cupcake-1-v2",
+          "description": "Velvety cocoa base topped with a smooth, glossy chocolate ganache swirl."
+        },
+        {
+          "name": "Rainbow Frosted Cupcake",
+          "price": 420,
+          "unit": "box",
+          "image": "cupcake-2-v2",
+          "description": "Celebratory treats featuring multi-colored buttercream peaks and festive sparkles."
+        }
+      ]
+    }
+  ],
+  "combos": [
+    {
+      "id": "combo-1",
+      "title": "Family Pack",
+      "items": [
+        "1 kg Mawa Gujiya",
+        "Holi Bento Cake"
+      ],
+      "image": "combo-1-family",
+      "price": 699
+    },
+    {
+      "id": "combo-2",
+      "title": "Celebration Box",
+      "items": [
+        "1 kg Mawa Gujiya",
+        "Thandai Jar",
+        "Classic Fudgy Brownie (2 Pcs)"
+      ],
+      "image": "combo-2-celebration",
+      "price": 799,
+      "featured": true
+    }
+  ]
+}
