@@ -1,12 +1,30 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useCart } from '@/context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Calendar, MapPin } from 'lucide-react';
 import AddToCartButton from './AddToCartButton';
 
 export default function CartBottomSheet() {
     const { items, isCartOpen, setCartOpen, totalPrice, clearCart } = useCart();
+
+    // Delivery Form State
+    const [deliveryDate, setDeliveryDate] = useState('');
+    const [deliveryAddress, setDeliveryAddress] = useState('');
+
+    // Compute min and max dates (Today to Today + 7 days)
+    const today = new Date();
+    const minDate = today.toISOString().split('T')[0];
+    const maxDateObj = new Date(today);
+    maxDateObj.setDate(maxDateObj.getDate() + 7);
+    const maxDate = maxDateObj.toISOString().split('T')[0];
+
+    useEffect(() => {
+        if (isCartOpen && !deliveryDate) {
+            setDeliveryDate(minDate); // Default to today securely on client-side
+        }
+    }, [isCartOpen, deliveryDate, minDate]);
 
     const handleWhatsAppOrder = () => {
         const phoneNumber = '917023235162';
@@ -16,7 +34,11 @@ export default function CartBottomSheet() {
             message += `${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
         });
 
-        message += `\n*Grand Total: ₹${totalPrice}*`;
+        message += `\n*Delivery Date:* ${deliveryDate}`;
+        if (deliveryAddress.trim()) {
+            message += `\n*Delivery Address:* ${deliveryAddress.trim()}`;
+        }
+        message += `\n\n*Grand Total: ₹${totalPrice}*`;
 
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -89,7 +111,41 @@ export default function CartBottomSheet() {
 
                             {/* Footer / Checkout */}
                             {items.length > 0 && (
-                                <div className="p-5 bg-white border-t border-brand-text-muted/20 shadow-[0_-10px_20px_rgba(0,0,0,0.02)]">
+                                <div className="p-5 bg-white border-t border-brand-text-muted/20 shadow-[0_-10px_20px_rgba(0,0,0,0.02)] sm:rounded-b-2xl">
+                                    {/* Additional Delivery Details */}
+                                    <div className="flex flex-col gap-3 mb-5 border-b border-brand-text-muted/10 pb-5">
+                                        <div className="flex flex-col gap-1.5">
+                                            <label htmlFor="deliveryDate" className="text-sm font-semibold text-brand-text flex items-center gap-1.5">
+                                                <Calendar size={14} className="text-campaign-tertiary" />
+                                                Delivery Date <span className="text-rose-500">*</span>
+                                            </label>
+                                            <input
+                                                type="date"
+                                                id="deliveryDate"
+                                                min={minDate}
+                                                max={maxDate}
+                                                value={deliveryDate}
+                                                onChange={(e) => setDeliveryDate(e.target.value)}
+                                                className="border border-brand-text-muted/30 rounded-lg p-2.5 bg-stone-50 focus:ring-2 focus:ring-campaign-tertiary/50 focus:border-campaign-tertiary outline-none transition-all text-brand-text font-medium text-sm"
+                                            />
+                                        </div>
+                                        <div className="flex flex-col gap-1.5">
+                                            <label htmlFor="deliveryAddress" className="text-sm font-semibold text-brand-text flex items-center gap-1.5">
+                                                <MapPin size={14} className="text-brand-primary" />
+                                                Delivery Address <span className="text-brand-text-muted text-[10px] font-normal uppercase tracking-wider ml-1">(Optional)</span>
+                                            </label>
+                                            <textarea
+                                                id="deliveryAddress"
+                                                placeholder="Enter house, street, landmark..."
+                                                rows={2}
+                                                value={deliveryAddress}
+                                                onChange={(e) => setDeliveryAddress(e.target.value)}
+                                                className="border border-brand-text-muted/30 rounded-lg p-2.5 bg-stone-50 focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary outline-none transition-all text-brand-text resize-none text-sm placeholder:text-stone-400"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Totals & Button */}
                                     <div className="flex items-center justify-between mb-4">
                                         <span className="text-brand-text-muted font-medium">Grand Total</span>
                                         <span className="text-2xl font-black text-brand-text">₹{totalPrice}</span>
