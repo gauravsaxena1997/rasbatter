@@ -63,12 +63,7 @@ export default function FloatingMenu() {
     return (
         <div
             ref={menuRef}
-            className={`fixed z-40 flex flex-col transition-all duration-300 ${totalItems > 0
-                // When cart has items: Position on the left side, same row as the cart button
-                ? 'bottom-6 left-4 md:left-6 items-start'
-                // Default: Centers along the bottom
-                : 'bottom-8 left-4 md:left-1/2 md:-translate-x-1/2 items-start md:items-center'
-                }`}
+            className={`fixed z-40 flex flex-col transition-all duration-300 bottom-6 left-4 md:left-6 items-start`}
         >
             {/* The Popup Menu */}
             <AnimatePresence>

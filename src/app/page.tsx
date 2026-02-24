@@ -14,23 +14,38 @@ export default function Home() {
 
 
         <div className="relative z-10">
-          {/* Hero Section */}
-          <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 py-12 md:py-20">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-widest uppercase text-campaign-primary mb-6 antialiased">
-              Ras & Batter
-            </h2>
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-extrabold mb-4 leading-none tracking-tight">
-              <span className="bg-gradient-to-r from-campaign-primary via-campaign-tertiary to-brand-primary bg-clip-text text-transparent">
-                Holi Special
-              </span>
-              <span className="block text-brand-text font-sans mt-2 md:mt-4 text-4xl md:text-6xl lg:text-7xl tracking-widest font-black uppercase">
-                Menu
-              </span>
-            </h1>
-            <p className="max-w-xl mx-auto text-lg md:text-xl text-brand-text-muted mt-8 mb-12">
-              Celebrate the festival of colors with our exquisite, handcrafted bakes and treats.
-            </p>
-            <ExploreMenuButton />
+          {/* Finalized Hero Section: Full viewport background image */}
+          <section className="relative min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+            {/* Background Image Layer */}
+            <div className="absolute inset-0 z-0 pointer-events-none select-none">
+              <Image
+                src="/images/hero-platter.png"
+                alt="Holi Special Dessert Platter"
+                fill
+                className="object-cover object-center"
+                quality={90}
+                priority
+              />
+              {/* Subtle dark overlays to ensure maximum text contrast & depth */}
+              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            </div>
+
+            {/* Content overlay with drop shadows for depth */}
+            <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-4 mt-12 md:mt-24">
+              <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-widest uppercase text-white mb-4 md:mb-6 antialiased drop-shadow-md">
+                Ras & Batter
+              </h2>
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 leading-[1.1] tracking-tight text-white drop-shadow-2xl">
+                <span className="bg-gradient-to-r from-pink-200 via-yellow-100 to-cyan-100 bg-clip-text text-transparent drop-shadow-2xl">
+                  The Holi Collection
+                </span>
+              </h1>
+              <p className="max-w-xl mx-auto text-lg md:text-xl text-stone-100 font-medium mb-10 md:mb-12 drop-shadow-lg">
+                Immerse yourself in Masterchef-level indulgence and vibrant festive flavors.
+              </p>
+              <ExploreMenuButton />
+            </div>
           </section>
 
           {/* Menu Sections */}
