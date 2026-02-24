@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Ras & Batter",
     images: [
       {
-        url: "/images/hero-platter.png", // Next.js will resolve this absolute to the site domain on deployment
+        url: "https://rasbatter.vercel.app/images/hero-platter.png", // Must be absolute for WhatsApp/Socials to fetch
         width: 1920,
         height: 1080,
         alt: "Ras & Batter Holi Special Dessert Platter",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ras & Batter - The Holi Collection",
     description: "Immerse yourself in Masterchef-level indulgence and vibrant festive flavors.",
-    images: ["/images/hero-platter.png"],
+    images: ["https://rasbatter.vercel.app/images/hero-platter.png"],
   },
 };
 
