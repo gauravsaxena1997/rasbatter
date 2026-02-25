@@ -50,56 +50,56 @@ export default function Home() {
 
           {/* Menu Sections */}
           <div id="menu" className="max-w-7xl mx-auto px-6 pt-8 pb-4 md:pt-16 md:pb-8">
-            {menuData.categories.map((category) => (
-              <MenuCategory key={category.id} {...category} />
-            ))}
-
-            {/* Combos Section */}
-            <section id="combos" className="mb-0">
-              <div className="flex flex-col items-center text-center mb-16">
-                <h3 className="font-serif text-4xl md:text-5xl font-bold text-brand-text">Holi Combo Offers</h3>
+            {/* Combos Section (Moved to top) */}
+            <section id="combos" className="mb-12 md:mb-16">
+              <div className="flex flex-col items-center text-center mb-8 md:mb-10">
+                <h3 className="font-serif text-3xl md:text-5xl font-bold text-brand-text">Holi Combo Offers</h3>
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                 {menuData.combos.map((combo) => {
                   const originalPrice = Math.round(combo.price / 0.7);
                   return (
                     <div
                       key={combo.id}
-                      className="relative p-6 md:p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-xl flex flex-col transition-all duration-500 hover:-translate-y-2"
+                      className="relative p-5 md:p-6 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-xl flex flex-col sm:flex-row gap-5 md:gap-6 transition-all duration-500 hover:-translate-y-1"
                     >
-                      <h4 className="font-serif text-2xl md:text-3xl font-bold mb-6 text-brand-text">{combo.title}</h4>
-
+                      {/* Left Side: Image */}
                       {combo.image && (
-                        <div className="relative w-full h-48 md:h-56 mb-6 rounded-2xl overflow-hidden shadow-sm bg-brand-text/5">
+                        <div className="relative w-full sm:w-40 md:w-48 flex-shrink-0 h-48 sm:h-auto min-h-[12rem] rounded-2xl overflow-hidden shadow-sm bg-brand-text/5">
                           <Image
                             src={`/images/${combo.image}.png`}
                             alt={combo.title}
                             fill
                             className="object-cover transition-transform duration-700 hover:scale-105"
-                            sizes="(max-width: 768px) 100vw, 33vw"
+                            sizes="(max-width: 640px) 100vw, 33vw"
                           />
                         </div>
                       )}
 
-                      <ul className="flex-grow space-y-4 mb-8">
-                        {combo.items.map((item, idx) => (
-                          <li key={idx} className="flex items-center text-lg text-brand-text-muted font-medium pb-4 border-b border-brand-text-muted/10 last:border-0 pl-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-campaign-primary mr-3 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                      {/* Right Side: Content */}
+                      <div className="flex flex-col flex-grow">
+                        <h4 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-brand-text">{combo.title}</h4>
 
-                      <div className="mt-auto flex items-end justify-between border-t border-brand-text-muted/20 pt-5">
-                        <div className="flex flex-col gap-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-lg font-medium text-brand-text-muted line-through">₹{originalPrice}</span>
-                            <span className="text-xs font-bold px-2 py-1 rounded-md bg-campaign-primary/10 text-campaign-primary tracking-wider">30% OFF</span>
+                        <ul className="flex-grow space-y-2 mb-6">
+                          {combo.items.map((item, idx) => (
+                            <li key={idx} className="flex items-center text-sm md:text-base text-brand-text-muted font-medium pb-2 border-b border-brand-text-muted/10 last:border-0 pl-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-campaign-primary mr-3 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="mt-auto flex items-end justify-between border-t border-brand-text-muted/20 pt-4">
+                          <div className="flex flex-col gap-0.5">
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm md:text-base font-medium text-brand-text-muted line-through">₹{originalPrice}</span>
+                              <span className="text-[10px] md:text-xs font-bold px-1.5 py-0.5 rounded bg-campaign-primary/10 text-campaign-primary tracking-wider">30% OFF</span>
+                            </div>
+                            <span className="text-3xl md:text-4xl font-black text-campaign-primary">₹{combo.price}</span>
                           </div>
-                          <span className="text-4xl lg:text-5xl font-black text-campaign-primary">₹{combo.price}</span>
-                        </div>
-                        <div className="scale-110 origin-bottom-right">
-                          <AddToCartButton item={{ id: combo.id, name: combo.title, price: combo.price, categoryId: 'combos' }} />
+                          <div className="scale-100 origin-bottom-right">
+                            <AddToCartButton item={{ id: combo.id, name: combo.title, price: combo.price, categoryId: 'combos' }} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -107,6 +107,11 @@ export default function Home() {
                 })}
               </div>
             </section>
+
+            {/* Regular Menu Categories */}
+            {menuData.categories.map((category) => (
+              <MenuCategory key={category.id} {...category} />
+            ))}
           </div>
 
           <footer className="bg-gradient-to-t from-campaign-primary/10 to-transparent pt-12 pb-32 md:pb-16 text-center">

@@ -58,7 +58,7 @@
         },
         {
           "name": "Holi Bento Cake",
-          "price": 149,
+          "price": 299,
           "unit": "pc",
           "image": "cake-3-bento",
           "description": "Perfect mini celebration cake with cute festive designs and moist sponge layers."
@@ -118,6 +118,27 @@
           "unit": "pc",
           "image": "brownie-3-v2",
           "description": "Dual chocolate delight with semi-sweet morsels baked into every rich bite."
+        }
+      ]
+    },
+    {
+      "id": "jars",
+      "title": "Dessert Jars",
+      "icon": "Package",
+      "items": [
+        {
+          "name": "Thandai Jar",
+          "price": 99,
+          "unit": "jar",
+          "image": "thandai-jar-v2",
+          "description": "Rich layers of thandai infused mousse and sponge cake, packed in a convenient jar."
+        },
+        {
+          "name": "Chocolate Jar",
+          "price": 149,
+          "unit": "jar",
+          "image": "layer-jar-choc",
+          "description": "Decadent layers of soft cocoa sponge, silky ganache, and chocolate chips."
         }
       ]
     },

@@ -57,7 +57,7 @@ export default function ItemCard({ id, name, price, unit, description, premium, 
                                 {unit && <span className="text-xs font-medium text-brand-text-muted ml-1">/{unit}</span>}
                             </div>
                             <span className="text-sm font-medium text-brand-text-muted line-through">₹{originalPrice}</span>
-                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-100 text-rose-600 tracking-wider">30% OFF</span>
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-campaign-primary/10 text-campaign-primary tracking-wider">30% OFF</span>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ export default function ItemCard({ id, name, price, unit, description, premium, 
                                 {unit && <span className="text-xs font-medium text-brand-text-muted ml-1">/{unit}</span>}
                             </div>
                             <span className="text-sm font-medium text-brand-text-muted line-through">₹{originalPrice}</span>
-                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-100 text-rose-600 tracking-wider">30% OFF</span>
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-campaign-primary/10 text-campaign-primary tracking-wider">30% OFF</span>
                         </div>
                     </div>
 
