@@ -39,7 +39,7 @@
     },
     {
       "id": "cakes",
-      "title": "Holi Special Cakes",
+      "title": "Cakes",
       "icon": "CakeSlice",
       "items": [
         {
@@ -67,7 +67,7 @@
     },
     {
       "id": "chocolates",
-      "title": "Holi Special Chocolate Bars",
+      "title": "Chocolate Bars",
       "icon": "Candy",
       "items": [
         {
@@ -123,7 +123,7 @@
     },
     {
       "id": "cupcakes",
-      "title": "Holi Special Cupcakes (Pack of 6)",
+      "title": "Cupcakes (Pack of 6)",
       "icon": "Dessert",
       "items": [
         {

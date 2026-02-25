@@ -42,7 +42,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="max-w-xl mx-auto text-lg md:text-xl text-stone-100 font-medium mb-10 md:mb-12 drop-shadow-lg">
-                Immerse yourself in Masterchef-level indulgence and vibrant festive flavors.
+                Where every bite is a celebration, handcrafted with love and vibrant festive flavors.
               </p>
               <ExploreMenuButton />
             </div>
