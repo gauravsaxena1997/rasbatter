@@ -15,6 +15,7 @@ interface ItemProps {
 
 export default function ItemCard({ id, name, price, unit, description, premium, image, categoryId }: ItemProps) {
     const [imgError, setImgError] = useState(false);
+    const originalPrice = Math.round(price / 0.7);
 
     // Define fallback images from Unsplash based on keywords
     const getFallback = () => {
@@ -50,9 +51,13 @@ export default function ItemCard({ id, name, price, unit, description, premium, 
                         <h4 className="text-lg font-bold leading-tight text-brand-text">
                             {name}
                         </h4>
-                        <div className="flex items-baseline mt-1">
-                            <span className="text-xl font-bold text-brand-primary">₹{price}</span>
-                            {unit && <span className="text-xs font-medium text-brand-text-muted ml-1">/{unit}</span>}
+                        <div className="flex items-center flex-wrap gap-2 mt-1">
+                            <div className="flex items-baseline">
+                                <span className="text-xl font-bold text-brand-primary">₹{price}</span>
+                                {unit && <span className="text-xs font-medium text-brand-text-muted ml-1">/{unit}</span>}
+                            </div>
+                            <span className="text-sm font-medium text-brand-text-muted line-through">₹{originalPrice}</span>
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-100 text-rose-600 tracking-wider">30% OFF</span>
                         </div>
                     </div>
                 </div>
@@ -65,9 +70,13 @@ export default function ItemCard({ id, name, price, unit, description, premium, 
                         <h4 className="text-xl font-bold leading-tight text-brand-text">
                             {name}
                         </h4>
-                        <div className="flex items-baseline mt-1">
-                            <span className="text-xl font-bold text-brand-primary">₹{price}</span>
-                            {unit && <span className="text-xs font-medium text-brand-text-muted ml-1">/{unit}</span>}
+                        <div className="flex items-center flex-wrap gap-2 mt-1">
+                            <div className="flex items-baseline">
+                                <span className="text-xl font-bold text-brand-primary">₹{price}</span>
+                                {unit && <span className="text-xs font-medium text-brand-text-muted ml-1">/{unit}</span>}
+                            </div>
+                            <span className="text-sm font-medium text-brand-text-muted line-through">₹{originalPrice}</span>
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-100 text-rose-600 tracking-wider">30% OFF</span>
                         </div>
                     </div>
 

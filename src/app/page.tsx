@@ -60,42 +60,51 @@ export default function Home() {
                 <h3 className="font-serif text-4xl md:text-5xl font-bold text-brand-text">Holi Combo Offers</h3>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {menuData.combos.map((combo) => (
-                  <div
-                    key={combo.id}
-                    className="relative p-6 md:p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-xl flex flex-col transition-all duration-500 hover:-translate-y-2"
-                  >
-                    <h4 className="font-serif text-2xl md:text-3xl font-bold mb-6 text-brand-text">{combo.title}</h4>
+                {menuData.combos.map((combo) => {
+                  const originalPrice = Math.round(combo.price / 0.7);
+                  return (
+                    <div
+                      key={combo.id}
+                      className="relative p-6 md:p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-xl flex flex-col transition-all duration-500 hover:-translate-y-2"
+                    >
+                      <h4 className="font-serif text-2xl md:text-3xl font-bold mb-6 text-brand-text">{combo.title}</h4>
 
-                    {combo.image && (
-                      <div className="relative w-full h-48 md:h-56 mb-6 rounded-2xl overflow-hidden shadow-sm bg-brand-text/5">
-                        <Image
-                          src={`/images/${combo.image}.png`}
-                          alt={combo.title}
-                          fill
-                          className="object-cover transition-transform duration-700 hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      </div>
-                    )}
+                      {combo.image && (
+                        <div className="relative w-full h-48 md:h-56 mb-6 rounded-2xl overflow-hidden shadow-sm bg-brand-text/5">
+                          <Image
+                            src={`/images/${combo.image}.png`}
+                            alt={combo.title}
+                            fill
+                            className="object-cover transition-transform duration-700 hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                          />
+                        </div>
+                      )}
 
-                    <ul className="flex-grow space-y-4 mb-8">
-                      {combo.items.map((item, idx) => (
-                        <li key={idx} className="flex items-center text-lg text-brand-text-muted font-medium pb-4 border-b border-brand-text-muted/10 last:border-0 pl-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-campaign-primary mr-3 flex-shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                      <ul className="flex-grow space-y-4 mb-8">
+                        {combo.items.map((item, idx) => (
+                          <li key={idx} className="flex items-center text-lg text-brand-text-muted font-medium pb-4 border-b border-brand-text-muted/10 last:border-0 pl-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-campaign-primary mr-3 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
 
-                    <div className="mt-auto flex items-end justify-between border-t border-brand-text-muted/20 pt-5">
-                      <span className="text-4xl lg:text-5xl font-black text-campaign-primary">₹{combo.price}</span>
-                      <div className="scale-110 origin-bottom-right">
-                        <AddToCartButton item={{ id: combo.id, name: combo.title, price: combo.price, categoryId: 'combos' }} />
+                      <div className="mt-auto flex items-end justify-between border-t border-brand-text-muted/20 pt-5">
+                        <div className="flex flex-col gap-1">
+                          <div className="flex items-center gap-2">
+                            <span className="text-lg font-medium text-brand-text-muted line-through">₹{originalPrice}</span>
+                            <span className="text-xs font-bold px-2 py-1 rounded-md bg-campaign-primary/10 text-campaign-primary tracking-wider">30% OFF</span>
+                          </div>
+                          <span className="text-4xl lg:text-5xl font-black text-campaign-primary">₹{combo.price}</span>
+                        </div>
+                        <div className="scale-110 origin-bottom-right">
+                          <AddToCartButton item={{ id: combo.id, name: combo.title, price: combo.price, categoryId: 'combos' }} />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
           </div>
